@@ -11,3 +11,5 @@ class Posts(models.Model):
     imgClass = models.TextField(max_length=100)
     content = models.TextField()
     postedAt = models.DateTimeField('date published')
+    def __str__(self):
+        return self.title
