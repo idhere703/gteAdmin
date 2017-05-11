@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from rest_framework import routers
 from django.contrib import admin
-from .gotToEat import views
+from gteAdmin.gotToEat import views
 
 
 router = routers.DefaultRouter()
