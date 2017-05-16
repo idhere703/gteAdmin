@@ -13,6 +13,7 @@ class Post(models.Model):
     subtitle = models.TextField(max_length=200)
     postedBy = models.TextField(max_length=200)
     imgClass = models.TextField(max_length=100)
+    headerImg = models.FileField(upload_to='uploads/')
     content = models.TextField()
     postedAt = models.DateTimeField('date published')
     def __str__(self):
