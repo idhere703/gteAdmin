@@ -19,6 +19,17 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comment(models.Model):
+    commentId = models.TextField(max_length=100)
+    postId = models.TextField(max_length=200)
+    postedBy = models.TextField(max_length=200)
+    content = models.TextField()
+    postedAt = models.DateTimeField('date published')
+    def __str__(self):
+        return self.title
+
+
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:

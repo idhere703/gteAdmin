@@ -22,6 +22,7 @@ from rest_framework_jwt.views import obtain_jwt_token,refresh_jwt_token
 
 router = routers.DefaultRouter()
 router.register(r'posts', views.PostViewSet)
+router.register(r'comments', views.CommentViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
