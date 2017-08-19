@@ -27,7 +27,7 @@ class Comment(models.Model):
     content = models.TextField()
     postedAt = models.DateTimeField('date published')
     def __str__(self):
-        return self.title
+        return self.content
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
