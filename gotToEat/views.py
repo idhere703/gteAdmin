@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.request import Request
 
 
 
@@ -11,9 +14,6 @@ def index(request):
     return HttpResponse("You're at the index.")
 
 class PostViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Post.objects.all().order_by('-postedAt')
     serializer_class = PostSerializer
 
