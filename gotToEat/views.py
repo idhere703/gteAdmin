@@ -7,7 +7,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
-
+from rest_framework import permissions
 
 
 def index(request):
@@ -16,8 +16,9 @@ def index(request):
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-postedAt')
     serializer_class = PostSerializer
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by('-postedAt')
     serializer_class = CommentSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

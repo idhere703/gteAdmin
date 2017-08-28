@@ -143,5 +143,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 ALLOWED_HOSTS = [
-    '.ngrok.io'
+    '.ngrok.io',
+    '127.0.0.1'
 ]
