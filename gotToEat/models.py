@@ -29,8 +29,9 @@ class Comment(models.Model):
     def __str__(self):
         return self.content
 
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
+class User(models.Model):
+    userId = models.TextField
+    firstName = models.TextField(max_length=200)
+    lastName = models.TextField(max_length=200)
+    email = models.EmailField(max_length=200)
+    phone = models.TextField(max_length=200)
