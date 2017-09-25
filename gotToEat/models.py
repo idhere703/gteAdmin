@@ -35,3 +35,5 @@ class User(models.Model):
     lastName = models.TextField(max_length=200)
     email = models.EmailField(max_length=200)
     phone = models.TextField(max_length=200)
+    def __str__(self):
+        return self.email
