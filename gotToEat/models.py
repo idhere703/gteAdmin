@@ -8,12 +8,27 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 # Create your models here.
+class State(models.Model):
+    postalCode = models.TextField(max_length=2)
+    name = models.TextField(max_length=200)
+    allowedSignup = models.BooleanField()
+    def __str__(self):
+        return self.name
+
+
 class User(models.Model):
     userId = models.TextField(max_length=100)
     firstName = models.TextField(max_length=200)
     lastName = models.TextField(max_length=200)
     email = models.EmailField(max_length=200)
     phone = models.TextField(max_length=200)
+    city = models.TextField(max_length=200)
+    state = models.ForeignKey(
+        'State',
+        on_delete=models.CASCADE,
+    )
+    zip = models.TextField(max_length=5)
+    country = models.TextField(max_length=200)
     def __str__(self):
         return self.email
 
